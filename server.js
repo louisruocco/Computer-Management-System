@@ -2,6 +2,7 @@ const express = require("express");
 const session = require("express-session");
 const MySQLStore = require("express-mysql-session")(session);
 const ejs = require("ejs");
+const db = require("./database");
 const dotenv = require("dotenv");
 const app = express();
 
@@ -18,6 +19,7 @@ const config = {
 const sessionStore = new MySQLStore(config);
 
 dotenv.config({path: "./.env"});
+app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.set("view engine", "ejs");
@@ -27,4 +29,6 @@ app.use(session({
     resave: false, 
     saveUninitialized: false, 
     session: sessionStore
-}))
+}));
+
+app.use("/", require("./routes/pages"));
