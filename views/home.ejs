@@ -4,11 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title><%= name[0].name %>'s Dashboard</title>
 </head>
 <body>
+    <form action="/auth/logout" method = "POST">
+        <div class="logout"">
+            <button>Logout</button>
+        </div>
+    </form>
     <div class="title">
-        <h1>Home</h1>
+        <h1>Welcome Back <%= name[0].name %></h1>
+    </div>
+    <div class="add">
+        <a href="/add">Add a Workstation</a>
+    </div>
+    <div class="workstations">
+        <% workstations.forEach(workstation => { %>
+            <a href="/home/<%= workstation.name %>"><%= workstation.name %></a>
+        <% }) %>
     </div>
 </body>
 </html>

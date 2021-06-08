@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS | Add a Workstation</title>
+</head>
+<body>
+    <div class="title">
+        <h1>Workstation</h1>
+    </div>
+    <form action="/auth/add" method = "POST">
+        <div class="name-section">
+            <input type="text" name = "name" placeholder = "PC Name">
+        </div>
+        <div class="os-section">
+            <input type="text" name = "os" placeholder = "OS">
+        </div>
+        <div class="spec-section">
+            <textarea name="spec" cols="30" rows="10" placeholder = "Spec"></textarea>
+        </div>
+        <div class="Storage-section">
+            <textarea name="storage" cols="30" rows="10" placeholder = "Storage"></textarea>
+        </div>
+        <div class="button">
+            <button>Add Workstation</button>
+        </div>
+    </form>
+    <a class = "link" href="/home">Back to Dashboard</a>
+</body>
+</html>

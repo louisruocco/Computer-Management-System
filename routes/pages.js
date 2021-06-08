@@ -1,7 +1,7 @@
 const express = require("express");
 const session = require("express-session");
 const path = require("path");
-const { nextTick } = require("process");
+const db = require("../database");
 const router = express.Router();
 
 const redirectLanding = (req, res, next) => {
@@ -34,7 +34,33 @@ router.get("/register", redirectHome, (req, res) => {
 });
 
 router.get("/home", redirectLanding, (req, res) => {
-    res.render("home");
+    db.query("SELECT name FROM users WHERE id = ?", [req.session.userId], (err, name) => {
+        if(err){
+            return console.log(err);
+        } 
+
+        db.query("SELECT * FROM workstations WHERE id = ?", [req.session.userId], (err, workstations) => {
+            if(err){
+                return console.log(err)
+            } else {
+                res.render("home", {name, workstations});
+            }
+        })
+    })
 });
+
+router.get("/add", redirectLanding, (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/add.html"));
+});
+
+router.get("/home/:name", (req, res) => {
+    db.query("SELECT * FROM workstations WHERE name = ?", [req.params.name], (err, workstation) => {
+        if(err){
+            return console.log(err)
+        } else {
+            res.render("workstation", {workstation});
+        }
+    })
+})
 
 module.exports = router;

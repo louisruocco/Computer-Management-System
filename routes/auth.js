@@ -43,4 +43,36 @@ router.post("/login", (req, res) => {
     })
 })
 
+router.post("/add", (req, res) => {
+    const { id, name, os, spec, storage } = req.body;
+    db.query("SELECT name FROM workstations WHERE name = ?", [name], (err, workstation) => {
+        if(err){
+            return console.log(err);
+        }
+
+        if(workstation.length > 0){
+            return res.send("<h1>Workstation Already Exists</h1>")
+        }
+
+        db.query("INSERT INTO workstations SET ?", {id: req.session.userId, name: name, os: os, spec: spec, storage: storage}, (err) => {
+            if(err){
+                return console.log(err);
+            } else {
+                res.redirect("/home");
+            }
+        })
+    })
+});
+
+router.post("/logout", (req, res) => {
+    req.session.destroy((err) => {
+        if(err){
+            return res.redirect("/home");
+        } else {
+            res.clearCookie(process.env.SESS_NAME)
+            res.redirect("/");
+        }
+    })
+})
+
 module.exports = router;
