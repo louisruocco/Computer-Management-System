@@ -6,15 +6,10 @@
 }
 
 body {
-    background-image: url("background.jpg");
-}
-
-.overlay {
-    position: fixed;
-    background: black;
+    background: rgb(10, 10, 10);
+    background-size: cover;
+    background-attachment: fixed;
     width: 100%;
-    height: 100%;
-    opacity: .6;
 }
 
 .title {
@@ -27,4 +22,104 @@ body {
     width: 100%;
     height: 50vh;
     font-size: 30px;
+}
+
+.links {
+    position: relative;
+    display: flex;
+    width: 30%;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.links a {
+    text-decoration: none;
+    color: seagreen;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 25px;
+    background: rgba(0, 0, 0, .6);
+    padding: 40px;
+    width: 85px;
+    text-align: center;
+    border-radius: 10px;
+    transition: .3s ease;
+}
+
+.links a:hover {
+    transition: .3s ease;
+    transform: scale(1.15);
+}
+
+.login-section {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: -40vh;
+}
+
+.login-section form {
+    margin: -10vh;
+    background: rgb(15, 15, 15);
+    padding: 20px;
+    border-radius: 5px;
+    width: 20%;
+}
+
+.login-section div {
+    display: flex;
+    justify-content: center;
+}
+
+.login-section input {
+    margin: 10px;
+    font-size: 18px;
+    font-family: 'Rajdhani', sans-serif;
+    padding: 10px;
+    outline: 1px solid rgb(34, 33, 33);
+    border: none;
+    background: rgb(12, 12, 12);
+    color: seagreen;
+    width: 80%;
+}
+
+input::placeholder{
+    color: seagreen;
+    text-transform: uppercase;
+}
+
+.link-section {
+    margin-top: 120px;
+}
+
+.link {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'Rajdhani', sans-serif;
+    color: seagreen;
+    text-transform: uppercase;
+    transition: .3s ease;
+}
+
+.link:hover {
+    transition: .3s ease;
+    color: white;    
+}
+
+.button {
+    padding-top: 10px;
+}
+
+.button button {
+    padding: 10px;
+    outline: 1px solid rgba(46, 139, 86, 0.5);
+    border: none;
+    background: none;
+    color: seagreen;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
 }
