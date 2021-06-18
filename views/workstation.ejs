@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>CMS | <%= workstation[0].name %></title>
+    <link rel="stylesheet" href="/views/css/styles.css">
+    <title>CMS | <%= device[0].name %></title>
 </head>
 <body>
-    <div class="overlay"></div>
-    <div class="back">
+    <div class="link">
         <a href="/home">Back to Dashboard</a>
     </div>
     <form action="/auth/logout" method = "POST">
@@ -18,20 +17,17 @@
         </div>
     </form>
     <div class="title">
-        <h1><%= workstation[0].name %></h1>
+        <h1><%= device[0].name %></h1>
     </div>
-    <div class="workstation">
-        <div class="name-section">
-            <%= workstation[0].name %>
-        </div>
+    <div class="details">
         <div class="os-section">
-            <%= workstation[0].os %>
+            <p><%= device[0].os %></p>
         </div>
         <div class="spec-section">
-            <%= workstation[0].spec %>
+            <p><%= device[0].spec %></p>
         </div>
         <div class="storage-section">
-            <%= workstation[0].storage %>
+            <p><%= device[0].storage %></p>
         </div>
     </div>
 </body>
