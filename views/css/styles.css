@@ -6,7 +6,7 @@
 }
 
 body {
-    background: rgb(5, 11, 20);
+    background: rgb(10, 10, 10);
     background-size: cover;
     background-attachment: fixed;
     width: 100%;
@@ -144,6 +144,7 @@ input::placeholder{
 
 .workstations {
     display: flex;
+    flex-direction: column;
     height: 10vh;
     width: 100%;
     justify-content: center;
@@ -165,6 +166,7 @@ input::placeholder{
 
 .logout {
     padding: 15px;
+    position: fixed;
 }
 
 .logout button {
@@ -174,4 +176,14 @@ input::placeholder{
     padding: 7px;
     border-radius: 5px;
     color: grey;
+}
+
+.details {
+    position: relative;
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    white-space: normal;
+    text-align: center;
+    font-size: 22px;
+    white-space: pre-wrap;
 }

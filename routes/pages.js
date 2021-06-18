@@ -53,12 +53,12 @@ router.get("/add", redirectLanding, (req, res) => {
     res.sendFile(path.join(__dirname, "../public/add.html"));
 });
 
-router.get("/home/:name", (req, res) => {
-    db.query("SELECT * FROM workstations WHERE name = ?", [req.params.name], (err, workstation) => {
+router.get("/home/:name", redirectLanding, (req, res) => {
+    db.query("SELECT * FROM workstations WHERE name = ?", [req.params.name], (err, device) => {
         if(err){
             return console.log(err)
         } else {
-            res.render("workstation", {workstation});
+            res.render("workstation", {device});
         }
     })
 })
