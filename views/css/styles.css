@@ -3,10 +3,11 @@
 * {
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 body {
-    background: rgb(10, 10, 10);
+    background: rgb(5, 11, 20);
     background-size: cover;
     background-attachment: fixed;
     width: 100%;
@@ -143,10 +144,11 @@ input::placeholder{
 }
 
 .workstations {
-    display: flex;
-    flex-direction: column;
-    height: 10vh;
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
     width: 100%;
+    height: 100%;
     justify-content: center;
     align-items: center;
 }
@@ -155,27 +157,34 @@ input::placeholder{
     text-decoration: none;
     font-family: 'Rajdhani', sans-serif;
     color: white;
-    font-size: 20px;
-    transition: .2s ease;
+    font-size: 25px;
+    transition: .3s ease;
+    padding: 60px;
+    margin: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    outline: 1px solid seagreen;
+    text-align: center;
+    
 }
 
 .workstations a:hover {
-    transition: .2s ease;
-    text-decoration: underline;
+    transition: .5s ease;
+    transform: scale(1.25);
 }
 
 .logout {
     padding: 15px;
-    position: fixed;
+    position: relative;
 }
 
 .logout button {
-    background: rgb(95, 0, 0);
+    background: rgb(117, 0, 0);
     outline: none;
     border: none;
     padding: 7px;
     border-radius: 5px;
-    color: grey;
+    color: white;
+    cursor: pointer;
 }
 
 .details {
@@ -186,4 +195,54 @@ input::placeholder{
     text-align: center;
     font-size: 22px;
     white-space: pre-wrap;
+    display: grid;
+    grid-template-columns: 400px 400px 400px;
+    margin: auto;
+    justify-content: center;
+    width: 100%;
+    height: -10vh;
+}
+
+.details div {
+    border: 1px solid seagreen;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.details h3 {
+    padding-bottom: 20px;
+}
+
+.back {
+    text-align: center;
+    padding: 40px;
+}
+
+.back a {
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    transition: .3s ease;
+}
+
+.back a:hover {
+    color: seagreen;
+    transition: .3s ease;
+}
+
+.device-title {
+    display: flex;
+    width: 100%;
+    height: 25vh;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+    font-size: 30px;
 }

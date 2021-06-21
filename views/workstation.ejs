@@ -8,25 +8,28 @@
     <title>CMS | <%= device[0].name %></title>
 </head>
 <body>
-    <div class="back">
-        <a href="/home">Back to Dashboard</a>
-    </div>
     <form action="/auth/logout" method = "POST">
         <div class="logout"">
             <button>Logout</button>
         </div>
     </form>
-    <div class="title">
+    <div class="back">
+        <a href="/home">Back to Dashboard</a>
+    </div>
+    <div class="device-title">
         <h1><%= device[0].name %></h1>
     </div>
     <div class="details">
         <div class="os-section">
+            <h3>OS:</h3>
             <p><%= device[0].os %></p>
         </div>
         <div class="spec-section">
+            <h3>Spec:</h3>
             <p><%= device[0].spec %></p>
         </div>
         <div class="storage-section">
+            <h3>Storage:</h3>
             <p><%= device[0].storage %></p>
         </div>
     </div>
