@@ -2,19 +2,22 @@ const express = require("express");
 const session = require("express-session");
 const db = require("../database");
 const bcrypt = require("bcrypt");
+const flash = require("connect-flash");
 const router = express.Router();
 
 router.post("/register", (req, res) => {
     const { name, password } = req.body;
     db.query("SELECT name FROM users WHERE name = ?", [name], async (err, user) => {
         if(err){
-            return console.log(err);
+            req.flash("userexists", "Unable to Register User, Please Try Again");
+            return res.redirect("/register");
         }
 
         if(user.length > 0){
-            return res.send("<h1>User Already Exists</h1>")
+            req.flash("userexists", "User Already Exists");
+            return res.redirect("/register");
         }
-
+        
         let hashedPassword = await bcrypt.hash(password, 8);
         db.query("INSERT INTO users SET ?", {name: name, password: hashedPassword}, (err) => {
             if(err){
@@ -30,11 +33,18 @@ router.post("/login", (req, res) => {
     const { name, password } = req.body;
     db.query("SELECT * FROM users WHERE name = ?", [name], async (err, user) => {
         if(err){
-            return console.log(err);
+            req.flash("usernotfound", "User Not Found");
+            return res.redirect("/login");
         }
-        
+
+        if(user[0] === undefined){
+            req.flash("usernotfound", "User Not Found");
+            return res.redirect("/login");
+        }
+       
         if(!user || !(await bcrypt.compare(password, user[0].password))){
-            return res.send("<h1>User Not Found</h1>")
+            req.flash("usernotfound", "Incorrect Username or Password");
+            return res.redirect("/login");
         } else {
             const id = user[0].id;
             req.session.userId = id;

@@ -22,15 +22,15 @@ const redirectHome = (req, res, next) => {
 
 router.get("/", redirectHome, (req, res) => {
     const { userId } = req.session;
-    res.sendFile(path.join(__dirname, "../public/landing.html"));
+    res.render("landing");
 });
 
 router.get("/login", redirectHome, (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    res.render("login", { usernotfound : req.flash("usernotfound") });
 });
 
 router.get("/register", redirectHome, (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/register.html"));
+    res.render("register", { userexists : req.flash("userexists") });
 });
 
 router.get("/home", redirectLanding, (req, res) => {

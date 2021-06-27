@@ -8,241 +8,137 @@
 
 body {
     background: rgb(5, 11, 20);
-    background-size: cover;
-    background-attachment: fixed;
-    width: 100%;
+    font-family: 'Rajdhani', sans-serif;
 }
 
-.title {
+.landing-title {
     position: relative;
-    font-family: 'Rajdhani', sans-serif;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     width: 100%;
-    height: 50vh;
+    height: 40vh;
+    font-size: 30px;
+}
+
+.title {
+    position: relative;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 25vh;
     font-size: 30px;
 }
 
 .links {
-    position: relative;
     display: flex;
-    width: 50%;
-    justify-content: space-around;
-    margin: auto;
-}
-
-.links a {
-    text-decoration: none;
-    color: seagreen;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 25px;
-    background: rgba(0, 0, 0, .6);
-    padding: 40px;
-    width: 85px;
-    text-align: center;
-    border-radius: 10px;
-    transition: .3s ease;
-}
-
-.links a:hover {
-    transition: .3s ease;
-    transform: scale(1.15);
-}
-
-.login-section {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    height: -40vh;
-}
-
-.login-section form {
-    margin: -10vh;
-    background: rgb(15, 15, 15);
-    padding: 20px;
-    border-radius: 5px;
-    width: 20%;
-}
-
-.login-section div {
-    display: flex;
-    justify-content: center;
-}
-
-.login-section input {
-    margin: 10px;
-    font-size: 18px;
-    font-family: 'Rajdhani', sans-serif;
-    padding: 10px;
-    outline: 1px solid rgb(34, 33, 33);
-    border: none;
-    background: rgb(12, 12, 12);
-    color: seagreen;
-    width: 80%;
-}
-
-input::placeholder{
-    color: seagreen;
-    text-transform: uppercase;
-}
-
-.link-section {
-    margin-top: 120px;
-}
-
-.link {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-    font-size: 20px;
-    font-family: 'Rajdhani', sans-serif;
-    color: seagreen;
-    text-transform: uppercase;
-    transition: .3s ease;
-}
-
-.link:hover {
-    transition: .3s ease;
-    color: white;    
-}
-
-.button {
-    padding-top: 10px;
-}
-
-.button button {
-    padding: 10px;
-    outline: 1px solid rgba(46, 139, 86, 0.5);
-    border: none;
-    background: none;
-    color: seagreen;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 18px;
-    text-transform: uppercase;
-}
-
-.add {
-    text-align: center;
-}
-
-.add a {
-    text-decoration: none;
-    color: seagreen;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 20px;
-    transition: .3s ease;
-}
-
-.add a:hover {
-    transition: .3s ease;
-    color: white;
-}
-
-.workstations {
-    margin: 10px;
-    display: grid;
-    grid-template-columns: 300px 300px 300px;
     width: 100%;
     height: 100%;
     justify-content: center;
     align-items: center;
 }
 
-.workstations a {
+.links a {
+    margin: 80px;
     text-decoration: none;
-    font-family: 'Rajdhani', sans-serif;
-    color: white;
     font-size: 25px;
-    transition: .3s ease;
-    padding: 60px;
-    margin: 20px;
-    background: rgba(0, 0, 0, 0.5);
-    outline: 1px solid seagreen;
-    text-align: center;
-    
+    color: seagreen;
+    background: black;
+    border-radius: 7px;
+    padding: 50px;
+    transition: .4s ease;
+}
+.links a:hover {
+    transition: .4s ease;
+    transform: scale(1.15);
 }
 
-.workstations a:hover {
-    transition: .5s ease;
-    transform: scale(1.25);
-}
-
-.logout {
-    padding: 15px;
-    position: relative;
-}
-
-.logout button {
-    background: rgb(117, 0, 0);
-    outline: none;
-    border: none;
-    padding: 7px;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-}
-
-.details {
-    position: relative;
-    color: white;
-    font-family: 'Rajdhani', sans-serif;
-    white-space: normal;
-    text-align: center;
-    font-size: 22px;
-    white-space: pre-wrap;
-    display: grid;
-    grid-template-columns: 400px 400px 400px;
-    margin: auto;
-    justify-content: center;
-    width: 100%;
-    height: -10vh;
-}
-
-.details div {
-    border: 1px solid seagreen;
-    margin: 10px;
+.form-section{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    width: 20%;
+    height: -10vh;
     align-items: center;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-.details h3 {
-    padding-bottom: 20px;
-}
-
-.back {
-    text-align: center;
+    justify-content: center;
+    margin: auto;
+    background: rgb(17, 17, 17);
     padding: 40px;
 }
 
-.back a {
+.form-section div {
+    margin: 15px;
+}
+
+.form-section input {
+    width: 300px;
+    background: black;
+    outline: none;
+    border: none;
+    padding: 10px;
     font-family: 'Rajdhani', sans-serif;
-    color: white;
-    text-decoration: none;
-    font-size: 25px;
-    transition: .3s ease;
-}
-
-.back a:hover {
     color: seagreen;
-    transition: .3s ease;
+    font-size: 20px;
 }
 
-.device-title {
+.form-section input::placeholder{
+    font-family: 'Rajdhani', sans-serif;
+    color: seagreen;
+    font-size: 20px;
+}
+
+.button {
     display: flex;
-    width: 100%;
-    height: 25vh;
     justify-content: center;
     align-items: center;
+    padding-top: 30px;
+}
+
+.button button {
+    padding: 15px;
+    background: black;
+    outline: none;
+    border: 1px solid seagreen;
+    color: seagreen;
     font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+    border-radius: 7px;
+    transition: .4s ease;
+    text-transform: uppercase;
+}
+
+.button button:hover {
+    transition: .4s ease;
     color: white;
-    font-size: 30px;
+    border: 1px solid white;
+}
+
+.link-section {
+    text-align: center;
+    padding-top: 50px;
+}
+
+.link-section a {
+    text-decoration: none;
+    color: seagreen;
+    text-transform: uppercase;
+    font-size: 20px;
+    transition: .3s ease;
+}
+
+.link-section a:hover {
+    transition: .3s ease;
+    color: white;
+}
+
+.error {
+    background: rgba(196, 54, 54, 0.479);
+    color: red;
+    width: 15%;
+    padding: 10px;
+    margin: auto;
 }
