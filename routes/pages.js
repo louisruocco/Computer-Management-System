@@ -50,7 +50,7 @@ router.get("/home", redirectLanding, (req, res) => {
 });
 
 router.get("/add", redirectLanding, (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/add.html"));
+    res.render("add");
 });
 
 router.get("/home/:name", redirectLanding, (req, res) => {
