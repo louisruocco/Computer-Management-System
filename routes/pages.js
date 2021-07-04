@@ -61,6 +61,16 @@ router.get("/home/:name", redirectLanding, (req, res) => {
             res.render("workstation", {device});
         }
     })
-})
+});
+
+router.get("/delete/:name", (req, res) => {
+    db.query("SELECT * FROM workstations WHERE name = ?", [req.params.name], (err, device) => {
+        if(err){
+            return console.log(err)
+        } else {
+            res.render("delete", {device});
+        }
+    })
+});
 
 module.exports = router;

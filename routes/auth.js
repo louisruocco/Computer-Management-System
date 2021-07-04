@@ -83,6 +83,16 @@ router.post("/logout", (req, res) => {
             res.redirect("/");
         }
     })
+});
+
+router.post("/delete/:name", (req, res) => {
+    db.query("DELETE FROM workstations WHERE name = ?", [req.params.name], (err) => {
+        if(err){
+            return console.log(err)
+        } else {
+            res.redirect("/home");
+        }
+    })
 })
 
 module.exports = router;

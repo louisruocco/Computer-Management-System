@@ -8,11 +8,16 @@
     <title>CMS | <%= device[0].name %></title>
 </head>
 <body>
-    <form action="/auth/logout" method = "POST">
-        <div class="logout"">
-            <button>Logout</button>
-        </div>
-    </form>
+    <div class="nav">
+        <form action="/auth/logout" method = "POST">
+            <div class="logout"">
+                <button>Logout</button>
+            </div>
+        </form>
+        <form action="/delete/<%= device[0].name %>" method = "GET">
+            <button>Delete Workstation</button>
+        </form>
+    </div>
     <div class="back">
         <a href="/home">Back to Dashboard</a>
     </div>
