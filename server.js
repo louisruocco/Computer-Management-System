@@ -5,7 +5,6 @@ const ejs = require("ejs");
 const db = require("./database");
 const dotenv = require("dotenv");
 const flash = require("connect-flash");
-const path = require("path");
 const app = express();
 
 const port = process.env.PORT || 3000;
@@ -25,7 +24,6 @@ app.use("/views/css", express.static(__dirname + "/views/css"));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.set("view engine", "ejs");
-app.use(express.static(path.join(__dirname, "public")));
 app.use(flash());
 app.use(session({
     name: process.env.SESS_NAME, 

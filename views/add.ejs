@@ -11,23 +11,25 @@
     <div class="title">
         <h1>Workstation</h1>
     </div>
-    <form action="/auth/add" method = "POST">
-        <div class="name-section">
-            <input type="text" name = "name" placeholder = "PC Name">
-        </div>
-        <div class="os-section">
-            <input type="text" name = "os" placeholder = "OS">
-        </div>
-        <div class="spec-section">
-            <textarea name="spec" cols="30" rows="10" placeholder = "Spec"></textarea>
-        </div>
-        <div class="Storage-section">
-            <textarea name="storage" cols="30" rows="10" placeholder = "Storage"></textarea>
-        </div>
-        <div class="button">
-            <button>Add Workstation</button>
-        </div>
-    </form>
+    <div class="add-div">
+        <form action="/auth/add" method = "POST">
+            <div class="name-section">
+                <input type="text" name = "name" placeholder = "PC Name">
+            </div>
+            <div class="os-section">
+                <input type="text" name = "os" placeholder = "OS">
+            </div>
+            <div class="spec-section">
+                <textarea name="spec" cols="30" rows="10" placeholder = "Spec"></textarea>
+            </div>
+            <div class="Storage-section">
+                <textarea name="storage" cols="30" rows="10" placeholder = "Storage"></textarea>
+            </div>
+            <div class="button">
+                <button>Add Workstation</button>
+            </div>
+        </form>
+    </div>
     <a class = "link" href="/home">Back to Dashboard</a>
 </body>
 </html>
