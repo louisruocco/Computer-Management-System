@@ -14,18 +14,19 @@
                 <button>Logout</button>
             </div>
         </form>
+        <div class="back">
+            <a href="/home">Home</a>
+        </div>
         <form action="/delete/<%= device[0].name %>" method = "GET">
-            <button>Delete Workstation</button>
+            <div class="delete-workstation">
+                <button>Delete Workstation</button>
+            </div>
         </form>
-    </div>
-    <div class="back">
-        <a href="/home">Back to Dashboard</a>
     </div>
     <div class="device-title">
         <h1><%= device[0].name %></h1>
     </div>
     <div class="details">
-        <h2>Workstation Info:</h2>
         <div class="os-section">
             <h3>OS:</h3>
             <p><%= device[0].os %></p>

@@ -120,6 +120,8 @@ body {
 .link-section {
     text-align: center;
     padding-top: 50px;
+    height: 100%;
+    overflow-y: hidden;
 }
 
 .link-section a {
@@ -184,6 +186,59 @@ body {
     transform: scale(1.15);
 }
 
+.nav {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: auto;
+    width: 6%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: left;
+    position: fixed;
+    float: left;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.384);
+}
+
+.nav button, div, a {
+    padding-right: 5px;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    background: none;
+    font-size: 18px;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.logout button, .back a {
+    color: white;
+    transition: .3s ease;
+}
+
+.logout button:hover {
+    transition: .3s ease;
+    padding-left: 25px;
+    color: seagreen;
+}
+
+.back a:hover {
+    transition: .3s ease;
+    padding-left: 25px;
+    color: seagreen;
+}
+
+.delete-workstation button {
+    color: red;
+    transition: .4s ease;
+}
+
+.delete-workstation button:hover {
+    transition: .4s ease;
+    background: red;
+    color: white;
+}
+
 .device-title {
     color: white;
     font-family: 'Rajdhani', sans-serif;
@@ -192,27 +247,23 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding-top: 10px;
+    padding-top: 30px;
 }
 
 .details {
-    color: white;
-    width: 30%;
-    float: left;
-    position: fixed;
-}
-
-.details h2 {
     display: flex;
-    width: 65%;
+    color: white;
+    width: 70%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
     margin: auto;
-    padding-top: 15px;
 }
 
 .details div {
     margin: 20px;
     text-align: center;
-    width: 50%;
+    width: 30%;
     height: 100%;
     background: rgba(14, 13, 13, 0.514);
     white-space: pre-line;
@@ -248,44 +299,6 @@ body {
 .add-job a:hover {
     transition: .2s ease;
     color: seagreen;
-}
-
-.logout {
-    float: left;
-}
-
-.logout button {
-    outline: none;
-    border: none;
-    color: red;
-    background: none;
-    font-family: 'Rajdhani', sans-serif;
-    padding: 10px;
-    font-size: 18px;
-    transition: .2s ease;
-    cursor: pointer;
-}
-
-.logout button:hover {
-    transition: .3s ease;
-    color: white;
-    background: red;
-}
-
-.back {
-    padding: 10px;
-}
-
-.back a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    transition: .3s ease;
-}
-
-.back a:hover {
-    color: seagreen;
-    transition: .3s ease;
 }
 
 .add-div {
