@@ -287,3 +287,57 @@ body {
     color: seagreen;
     transition: .3s ease;
 }
+
+.add-div {
+    text-align: center;
+}
+
+.add-div div {
+    margin: 10px;
+}
+
+.add-div input, textarea {
+    border-radius: 10px;
+    padding: 10px;
+    background: black;
+    color: seagreen;
+    outline: none;
+    border: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px;
+}
+
+.add-div input, textarea::placeholder {
+    color: seagreen;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px;
+}
+
+.add-div input::placeholder {
+    color: seagreen;
+}
+
+.add-div textarea {
+    width: 350px;
+    height: 150px;
+    resize: none;
+}
+
+.link {
+    padding: 10px;
+    text-align: center;
+    width: 10%;
+    transition: .4s ease;
+}
+
+.link a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+.link:hover {
+    text-decoration: underline;
+    transition: .4s ease;
+    color: seagreen;
+}
