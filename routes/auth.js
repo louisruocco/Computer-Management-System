@@ -93,6 +93,25 @@ router.post("/delete/:name", (req, res) => {
             res.redirect("/home");
         }
     })
-})
+});
+
+router.post("/edit/:name", (req, res) => {
+    const { name, os, spec, storage } = req.body;
+    db.query("SELECT * FROM workstations WHERE name = ?", [req.params.name], (err, device) => {
+        if(err){
+            return console.log(err);
+        } else {
+            console.log(device);
+        }
+
+        db.query("UPDATE workstations SET ?", {name: name, os: os, spec: spec, storage: storage}, (err, device) => {
+            if(err){
+                return console.log(err);
+            } else {
+                res.redirect("/home/:name", {device});
+            }
+        })
+    })
+});
 
 module.exports = router;

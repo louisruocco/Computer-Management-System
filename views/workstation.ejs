@@ -22,6 +22,11 @@
                 <button>Delete Workstation</button>
             </div>
         </form>
+        <form action="/edit/<%= device[0].name %>" method = "GET">
+            <div class="edit-workstation">
+                <button>Edit Workstation</button>
+            </div>
+        </form>
     </div>
     <div class="device-title">
         <h1><%= device[0].name %></h1>

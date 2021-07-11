@@ -239,6 +239,18 @@ body {
     color: white;
 }
 
+.edit-workstation button {
+    color: seagreen;
+    cursor: pointer;
+    transition: .4s ease;
+}
+
+.edit-workstation button:hover {
+    transition: .4s ease;
+    background: seagreen;
+    color: white;
+}
+
 .device-title {
     color: white;
     font-family: 'Rajdhani', sans-serif;
@@ -353,4 +365,21 @@ body {
     text-decoration: underline;
     transition: .4s ease;
     color: seagreen;
+}
+
+.details button {
+    outline: none;
+    border: 1px solid seagreen;
+    background: none;
+    color: seagreen; 
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.details button:hover {
+    color: white;
+    border: 1px solid white;
+    transition: .3s ease;
 }
