@@ -383,3 +383,21 @@ body {
     border: 1px solid white;
     transition: .3s ease;
 }
+
+.home-logout button {
+    outline: none;
+    border: none;
+    background: none;
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+    padding: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.home-logout button:hover {
+    transition: .3s ease;
+    color: red;
+
+}

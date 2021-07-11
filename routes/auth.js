@@ -108,7 +108,7 @@ router.post("/edit/:name", (req, res) => {
             if(err){
                 return console.log(err);
             } else {
-                res.redirect("/home/:name", {device});
+                res.redirect("/home");
             }
         })
     })
