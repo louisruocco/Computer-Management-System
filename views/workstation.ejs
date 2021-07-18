@@ -17,14 +17,14 @@
         <div class="back">
             <a href="/home">Home</a>
         </div>
-        <form action="/delete/<%= device[0].name %>" method = "GET">
-            <div class="delete-workstation">
-                <button>Delete Workstation</button>
-            </div>
-        </form>
         <form action="/edit/<%= device[0].name %>" method = "GET">
             <div class="edit-workstation">
                 <button>Edit Workstation</button>
+            </div>
+        </form>
+        <form action="/delete/<%= device[0].name %>" method = "GET">
+            <div class="delete-workstation">
+                <button>Delete Workstation</button>
             </div>
         </form>
     </div>

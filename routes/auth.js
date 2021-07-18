@@ -108,6 +108,7 @@ router.post("/edit/:name", (req, res) => {
             if(err){
                 return console.log(err);
             } else {
+                req.flash("updated", "Workstation Updated")
                 res.redirect("/home");
             }
         })

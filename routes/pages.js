@@ -43,7 +43,7 @@ router.get("/home", redirectLanding, (req, res) => {
             if(err){
                 return console.log(err)
             } else {
-                res.render("home", {name, workstations});
+                res.render("home", {name, workstations, updated : req.flash("updated")});
             }
         })
     })
@@ -62,8 +62,7 @@ router.get("/home/:name", redirectLanding, (req, res) => {
                if(err){
                    return console.log(err);
                } else {
-                   console.log(jobs);
-                    res.render("workstation", {device, jobs});
+                   res.render("workstation", {device, jobs});
                }
            })
         }
