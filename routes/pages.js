@@ -58,7 +58,14 @@ router.get("/home/:name", redirectLanding, (req, res) => {
         if(err){
             return console.log(err)
         } else {
-            res.render("workstation", {device});
+           db.query("SELECT * FROM jobs WHERE name = ?", [req.params.name], (err, jobs) => {
+               if(err){
+                   return console.log(err);
+               } else {
+                   console.log(jobs);
+                    res.render("workstation", {device, jobs});
+               }
+           })
         }
     })
 });

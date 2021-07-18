@@ -295,10 +295,31 @@ body {
     font-size: 19px;
 }
 
+.details button {
+    outline: none;
+    border: 1px solid seagreen;
+    background: none;
+    color: seagreen; 
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.details button:hover {
+    color: white;
+    border: 1px solid white;
+    transition: .3s ease;
+}
+
 .add-job {
-    float: right;
-    width: 52%;
-    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
 }
 
 .add-job a {
@@ -367,23 +388,6 @@ body {
     color: seagreen;
 }
 
-.details button {
-    outline: none;
-    border: 1px solid seagreen;
-    background: none;
-    color: seagreen; 
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: .3s ease;
-}
-
-.details button:hover {
-    color: white;
-    border: 1px solid white;
-    transition: .3s ease;
-}
-
 .home-logout button {
     outline: none;
     border: none;
@@ -399,5 +403,32 @@ body {
 .home-logout button:hover {
     transition: .3s ease;
     color: red;
+}
 
+.jobs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.jobs a {
+    color: white;
+    font-size: 25px;
+    padding: 10px;
+    background: rgba(14, 13, 13, 0.514);
+    width: 40%;
+    text-align: center;
+    outline: 1px solid seagreen;
+    transition: .4s ease;
+}
+
+.jobs a:hover {
+    transition: .4s ease;
+    transform: scale(1.05);
+    color: seagreen;
+    outline: 1px solid white;
 }

@@ -48,5 +48,10 @@
     <div class="add-job">
         <a href="/addjob/<%= device[0].name %>">Add Job</a>
     </div>
+    <div class="jobs">
+        <% jobs.forEach(job => { %>
+            <a href = ""><%= job.jobname %></a>
+        <% }) %>
+    </div>
 </body>
 </html>
