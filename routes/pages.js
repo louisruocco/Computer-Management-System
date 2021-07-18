@@ -37,7 +37,7 @@ router.get("/home", redirectLanding, (req, res) => {
     db.query("SELECT name FROM users WHERE id = ?", [req.session.userId], (err, name) => {
         if(err){
             return console.log(err);
-        } 
+        }
 
         db.query("SELECT * FROM workstations WHERE id = ?", [req.session.userId], (err, workstations) => {
             if(err){
@@ -81,6 +81,16 @@ router.get("/edit/:name", (req, res) => {
             res.render("edit", {device});
         }
     })
+});
+
+router.get("/addjob/:name", (req, res) => {
+    db.query("SELECT name FROM workstations WHERE name = ?", [req.params.name], (err, name) => {
+        if(err){
+            return console.log(err);
+        } else {
+            res.render("addjob", {name});
+        }
+    });
 })
 
 module.exports = router;
