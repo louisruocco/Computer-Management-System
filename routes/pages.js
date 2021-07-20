@@ -69,7 +69,7 @@ router.get("/home/:name", redirectLanding, (req, res) => {
     })
 });
 
-router.get("/delete/:name", (req, res) => {
+router.get("/delete/:name", redirectLanding, (req, res) => {
     db.query("SELECT * FROM workstations WHERE name = ?", [req.params.name], (err, device) => {
         if(err){
             return console.log(err)
@@ -79,7 +79,7 @@ router.get("/delete/:name", (req, res) => {
     })
 });
 
-router.get("/edit/:name", (req, res) => {
+router.get("/edit/:name", redirectLanding, (req, res) => {
     db.query("SELECT * FROM workstations WHERE name = ?", [req.params.name], (err, device) => {
         if(err){
             return console.log(err)
@@ -89,7 +89,7 @@ router.get("/edit/:name", (req, res) => {
     })
 });
 
-router.get("/addjob/:name", (req, res) => {
+router.get("/addjob/:name", redirectLanding, (req, res) => {
     db.query("SELECT name FROM workstations WHERE name = ?", [req.params.name], (err, name) => {
         if(err){
             return console.log(err);
@@ -97,6 +97,22 @@ router.get("/addjob/:name", (req, res) => {
             res.render("addjob", {name});
         }
     });
-})
+});
+
+router.get("/home/:name/:jobname", redirectLanding, (req, res) => {
+    db.query("SELECT name FROM workstations WHERE name = ?" , [req.params.name], (err, name) => {
+        if(err){
+            return console.log(err);
+        } else {
+            db.query("SELECT jobname, description FROM jobs WHERE jobname = ?", [req.params.jobname], (err, details) => {
+                if(err){
+                    return console.log(err);
+                } else {
+                    res.render("job", {name, details});
+                }
+            })
+        }
+    })
+});
 
 module.exports = router;

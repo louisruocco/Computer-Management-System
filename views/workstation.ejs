@@ -50,7 +50,7 @@
     </div>
     <div class="jobs">
         <% jobs.forEach(job => { %>
-            <a href = ""><%= job.jobname %></a>
+            <a href = "/home/<%= device[0].name %>/<%= job.jobname %>"><%= job.jobname %></a>
         <% }) %>
     </div>
 </body>
