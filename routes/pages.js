@@ -100,18 +100,18 @@ router.get("/addjob/:name", redirectLanding, (req, res) => {
 });
 
 router.get("/home/:name/:jobname", redirectLanding, (req, res) => {
-    db.query("SELECT name FROM workstations WHERE name = ?" , [req.params.name], (err, name) => {
+    db.query("SELECT name FROM jobs WHERE name = ?" , [req.params.name], (err, name) => {
         if(err){
             return console.log(err);
-        } else {
-            db.query("SELECT jobname, description FROM jobs WHERE jobname = ?", [req.params.jobname], (err, details) => {
-                if(err){
-                    return console.log(err);
-                } else {
-                    res.render("job", {name, details});
-                }
-            })
         }
+
+        db.query("SELECT * FROM jobs WHERE id = ?", [req.session.userId], (err, details) => {
+            if(err){
+                return console.log(err);
+            } else {
+                res.render("job", {name, details});
+            }
+        })
     })
 });
 

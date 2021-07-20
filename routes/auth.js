@@ -117,7 +117,7 @@ router.post("/edit/:name", (req, res) => {
 
 router.post("/addjob/:name", (req, res) => {
     const { jobname, description } = req.body;
-    db.query("INSERT INTO jobs SET ?", {name: req.params.name, jobname: jobname, description: description}, (err) => {
+    db.query("INSERT INTO jobs SET ?", {id: req.session.userId, name: req.params.name, jobname: jobname, description: description}, (err) => {
         if(err){
             return console.log(err);
         } 
@@ -137,5 +137,6 @@ router.post("/addjob/:name", (req, res) => {
         })
     })
 });
+
 
 module.exports = router;
