@@ -117,18 +117,24 @@ router.post("/edit/:name", (req, res) => {
 
 router.post("/addjob/:name", (req, res) => {
     const { jobname, description } = req.body;
-    db.query("INSERT INTO jobs SET ?", {name: req.params.name, jobname: jobname, description: description}, (err, name) => {
+    db.query("INSERT INTO jobs SET ?", {name: req.params.name, jobname: jobname, description: description}, (err) => {
         if(err){
             return console.log(err);
-        } else {
-            db.query("SELECT * FROM workstations WHERE name = ?", [req.params.name], (err, device) => {
-                if(err){
-                    return console.log(err)
-                } else {
-                    res.render("workstation", {device});
-                }
-            })
-        }
+        } 
+
+        db.query("SELECT * FROM jobs WHERE name = ?", [req.params.name], (err, jobs) => {
+            if(err){
+                return console.log(err);
+            } else {
+                db.query("SELECT * FROM workstations WHERE name = ?", [req.params.name], (err, device) => {
+                    if(err){
+                        return console.log(err)
+                    } else {
+                        res.render("workstation", {device, jobs});
+                    }
+                })
+            }
+        })
     })
 });
 
