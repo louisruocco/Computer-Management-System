@@ -1,3 +1,4 @@
+const e = require("connect-flash");
 const express = require("express");
 const session = require("express-session");
 const path = require("path");
@@ -99,19 +100,13 @@ router.get("/addjob/:name", redirectLanding, (req, res) => {
     });
 });
 
-router.get("/home/:name/:jobname", redirectLanding, (req, res) => {
-    db.query("SELECT name FROM jobs WHERE name = ?" , [req.params.name], (err, name) => {
+router.get("/home/:name/:job_id", redirectLanding, (req, res) => {
+    db.query("SELECT * FROM jobs WHERE job_id = ?", [req.params.job_id], (err, job) => {
         if(err){
             return console.log(err);
+        } else {
+            res.render("job", {job});
         }
-
-        db.query("SELECT * FROM jobs WHERE id = ?", [req.session.userId], (err, details) => {
-            if(err){
-                return console.log(err);
-            } else {
-                res.render("job", {name, details});
-            }
-        })
     })
 });
 

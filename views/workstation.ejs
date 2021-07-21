@@ -45,12 +45,18 @@
             <p><%= device[0].storage %></p>
         </div>
     </div>
+    <br>
+    <hr>
+    <br>
+    <div class="subtitle">
+        <h2>Jobs</h2>
+    </div>
     <div class="add-job">
         <a href="/addjob/<%= device[0].name %>">Add Job</a>
     </div>
     <div class="jobs">
         <% jobs.forEach(job => { %>
-            <a href = "/home/<%= device[0].name %>/<%= job.jobname %>"><%= job.jobname %></a>
+            <a href = "/home/<%= device[0].name %>/<%= job.job_id %>"><%= job.jobname %></a>
         <% }) %>
     </div>
 </body>
