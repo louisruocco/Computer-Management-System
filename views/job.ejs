@@ -8,14 +8,31 @@
     <title><%= job[0].name %> | <%= job[0].jobname %></title>
 </head>
 <body>
-    <div class="link">
-        <a href="/home/<%= job[0].name %>">Back to Dashboard</a>
+    <div class="nav">
+        <form action="/auth/logout" method = "POST">
+            <div class="logout"">
+                <button>Logout</button>
+            </div>
+        </form>
+        <form action="/editjob/<%= job[0].jobname %>" method = "GET">
+            <div class="edit-workstation">
+                <button>Edit Job</button>
+            </div>
+        </form>
+        <form action="/delete/<%= job[0].jobname %>" method = "GET">
+            <div class="delete-workstation">
+                <button>Close Job</button>
+            </div>
+        </form>
     </div>
     <div class="ws-title">
-        <h3><%= job[0].name %></h3>
+        <a href = "/home/<%= job[0].name %>"><%= job[0].name %></a>
     </div>
     <div class="title">
         <h1><%= job[0].jobname %></h1>
+    </div>
+    <div class="subtitle">
+        <a href="/<%= job[0].jobname %>/addnote" target = "_blank" onclick = "window.open('/<%= job[0].jobname %>/addnote', 'name', 'width=650, height=400')"">Add note</a>
     </div>
     <div class="description">
         <h3>Description:</h3>

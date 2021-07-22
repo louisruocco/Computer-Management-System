@@ -110,4 +110,7 @@ router.get("/home/:name/:job_id", redirectLanding, (req, res) => {
     })
 });
 
+router.get("/:jobname/addnote", (req, res) => {
+    res.render("addnote");
+})
 module.exports = router;

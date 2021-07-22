@@ -464,12 +464,18 @@ hr {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    height: 10vh;
 }
 
-.ws-title h3 {
+.ws-title a {
     color: seagreen;
     font-size: 22px;
+    transition: .3s ease;
+}
+
+.ws-title a:hover {
+    color: white;
+    transition: .3s ease;
 }
 
 .description {
@@ -482,6 +488,7 @@ hr {
     background: rgba(14, 13, 13, 0.514);
     border: 1px solid rgba(46, 139, 86, 0.534);
     margin: auto;
+    padding: 20px;
 }
 
 .description h3 {
