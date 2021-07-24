@@ -38,5 +38,14 @@
             <a href="/<%= job[0].jobname %>/addnote" target = "_blank" onclick = "window.open('/<%= job[0].jobname %>/addnote', 'name', 'width=650, height=650')">Add note</a>
         </div>
     </div>
+    <br>
+    <hr>
+    <br>
+    <div class="job-notes">
+        <h4>Job Notes</h4>
+        <% jobnotes.forEach(jobnote => { %>
+            <p class = "note"><%= jobnote.note %></p>
+        <% }) %>
+    </div>
 </body>
 </html>

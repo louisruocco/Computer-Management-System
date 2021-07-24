@@ -101,17 +101,15 @@ router.post("/edit/:name", (req, res) => {
         if(err){
             return console.log(err);
         } else {
-            console.log(device);
+            db.query("UPDATE workstations SET ?", {name: name, os: os, spec: spec, storage: storage}, (err, device) => {
+                if(err){
+                    return console.log(err);
+                } else {
+                    req.flash("updated", "Workstation Updated")
+                    res.redirect("/home");
+                }
+            })
         }
-
-        db.query("UPDATE workstations SET ?", {name: name, os: os, spec: spec, storage: storage}, (err, device) => {
-            if(err){
-                return console.log(err);
-            } else {
-                req.flash("updated", "Workstation Updated")
-                res.redirect("/home");
-            }
-        })
     })
 });
 
@@ -137,6 +135,17 @@ router.post("/addjob/:name", (req, res) => {
         })
     })
 });
+
+router.post("/note/:job_id", (req, res) => {
+    const { note } = req.body;
+    db.query("INSERT INTO jobnotes SET ?", {job_id: req.params.job_id, note: note}, (err) => {
+        if(err){
+            return console.log(err);
+        } else {
+            res.send("<script>window.close();</script>")
+        }
+    })
+})
 
 
 module.exports = router;

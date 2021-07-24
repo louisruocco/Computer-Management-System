@@ -532,3 +532,24 @@ hr {
     height: 300px;
     font-size: 16px;
 }
+
+.job-notes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.job-notes h4 {
+    padding-bottom: 20px;
+}
+
+.job-notes p {
+    padding: 40px;
+    color: white;
+    background: rgba(14, 13, 13, 0.514);
+    border: 1px solid rgba(46, 139, 86, 0.534);
+    width: 65%;
+    margin: auto;
+    font-size: 18px;
+}

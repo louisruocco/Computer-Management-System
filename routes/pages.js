@@ -104,9 +104,15 @@ router.get("/home/:name/:job_id", redirectLanding, (req, res) => {
     db.query("SELECT * FROM jobs WHERE job_id = ?", [req.params.job_id], (err, job) => {
         if(err){
             return console.log(err);
-        } else {
-            res.render("job", {job});
         }
+
+        db.query("SELECT note FROM jobnotes WHERE job_id = ?", [req.params.job_id], (err, jobnotes) => {
+            if(err){
+                return console.log(err);
+            } else {
+                res.render("job", {job, jobnotes});
+            }
+        })
     })
 });
 
