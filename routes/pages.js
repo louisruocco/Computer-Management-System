@@ -111,6 +111,12 @@ router.get("/home/:name/:job_id", redirectLanding, (req, res) => {
 });
 
 router.get("/:jobname/addnote", (req, res) => {
-    res.render("addnote");
+    db.query("SELECT job_id, jobname, name FROM jobs WHERE jobname = ?", [req.params.jobname], (err, job) => {
+        if(err){
+            return console.log(err);
+        } else {
+            res.render("addnote", {job});
+        }
+    })
 })
 module.exports = router;
