@@ -26,6 +26,9 @@
             </div>
         </form>
     </div>
+    <div class="subtitle">
+        <a href="/home/<%= job[0].name %>"><%= job[0].name %></a>
+    </div>
     <div class="title">
         <h1><%= job[0].jobname %></h1>
     </div>
@@ -34,9 +37,7 @@
         <p><%= job[0].description %></p>
     </div>
     <div class="subtitle">
-        <div class="subtitle">
-            <a href="/<%= job[0].jobname %>/addnote" target = "_blank" onclick = "window.open('/<%= job[0].jobname %>/addnote', 'name', 'width=650, height=650')">Add note</a>
-        </div>
+        <a href="/<%= job[0].jobname %>/addnote" target = "_blank" onclick = "window.open('/<%= job[0].jobname %>/addnote', 'name', 'width=650, height=650')">Add note</a>
     </div>
     <br>
     <hr>
@@ -44,7 +45,7 @@
     <div class="job-notes">
         <h4>Job Notes</h4>
         <% jobnotes.forEach(jobnote => { %>
-            <p class = "note"><%= jobnote.note %></p>
+            <p><%= jobnote.note %></p>
         <% }) %>
     </div>
 </body>

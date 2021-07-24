@@ -38,7 +38,6 @@ hr {
     width: 100%;
     height: 20vh;
     font-size: 30px;
-    position: relative;
 }
 
 .links {
@@ -454,7 +453,7 @@ hr {
     padding: 15px;
 }
 
-.subtitle h2, h4 {
+.subtitle h2, h3, h4, a {
     color: seagreen;
     font-size: 20px;
 }
