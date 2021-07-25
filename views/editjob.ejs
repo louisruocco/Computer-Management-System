@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/views/css/styles.css">
+    <title><%= job[0].name %> | Edit <%= job[0].jobname %></title>
+</head>
+<body>
+    <div class="link">
+        <a href="/home/<%= job[0].name %>"><i class="fas fa-arrow-left"></i></a>
+   </div>
+   <div class="subtitle">
+       <h3><%= job[0].name %></h3>
+   </div>
+    <div class="title">
+        <h1>Edit <%= job[0].jobname %></h1>
+    </div>
+    <div class="add-div">
+        <form action="/auth/edit/job/<%= job[0].job_id %>" method = "POST">
+            <div class="name-section">
+                <input type="text" name = "jobname" value = "<%= job[0].jobname %>">
+            </div>
+            <div class="Storage-section">
+                <textarea name="description" cols="30" rows="10"><%= job[0].description %></textarea>
+            </div>
+            <div class="button">
+                <button>Update</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -15,7 +15,7 @@
                 <button><i class="fas fa-sign-out-alt"></i></button>
             </div>
         </form>
-        <form action="/edit/<%= job[0].jobname %>">
+        <form action="/edit/job/<%= job[0].job_id %>">
             <div class="edit-workstation">
                 <button><i class="fas fa-edit"></i></button>
             </div>
@@ -29,6 +29,11 @@
     <div class="subtitle">
         <a href="/home/<%= job[0].name %>"><%= job[0].name %></a>
     </div>
+    <% if(updated.length > 0){ %>
+        <div class="updated">
+            <p><%= updated %></p>
+        </div>
+    <% } %>
     <div class="title">
         <h1><%= job[0].jobname %></h1>
     </div>

@@ -3,6 +3,7 @@ const session = require("express-session");
 const db = require("../database");
 const bcrypt = require("bcrypt");
 const flash = require("connect-flash");
+const e = require("connect-flash");
 const router = express.Router();
 
 router.post("/register", (req, res) => {
@@ -90,25 +91,40 @@ router.post("/delete/:name", (req, res) => {
         if(err){
             return console.log(err)
         } else {
-            res.redirect("/home");
+            db.query("DELETE FROM jobs WHERE name = ?", [req.params.name], (err) => {
+                if(err){
+                    return console.log(err);
+                } else {
+                    res.redirect("/home");
+                }
+            })
         }
     })
 });
 
 router.post("/edit/:name", (req, res) => {
     const { name, os, spec, storage } = req.body;
-    db.query("SELECT * FROM workstations WHERE name = ?", [req.params.name], (err, device) => {
+    db.query("UPDATE workstations SET ? WHERE name = ?", [{name: name, os: os, spec: spec, storage: storage}, req.params.name], (err) => {
         if(err){
             return console.log(err);
         } else {
-            db.query("UPDATE workstations SET ?", {name: name, os: os, spec: spec, storage: storage}, (err, device) => {
-                if(err){
-                    return console.log(err);
-                } else {
-                    req.flash("updated", "Workstation Updated")
-                    res.redirect("/home");
-                }
-            })
+            if(err){
+                return console.log(err);
+            } else {
+                db.query("SELECT * FROM workstations WHERE name = ?", [req.params.name], (err, device) => {
+                    if(err){
+                        return console.log(err)
+                    } else {
+                       db.query("SELECT * FROM jobs WHERE name = ?", [req.params.name], (err, jobs) => {
+                           if(err){
+                               return console.log(err);
+                           } else {
+                               res.render("workstation", {device, jobs});
+                           }
+                       })
+                    }
+                })
+            }
         }
     })
 });
@@ -145,7 +161,36 @@ router.post("/note/:job_id", (req, res) => {
             res.send("<script>window.close();</script>")
         }
     })
-})
+});
 
+router.post("/edit/job/:job_id", (req, res) => {
+    const { jobname, description} = req.body;
+    db.query("SELECT * FROM jobs WHERE job_id = ?", [req.params.job_id], (err, job) => {
+        if(err){
+            return console.log(err);
+        }
+
+        db.query("UPDATE jobs SET ?", {jobname: jobname, description: description}, (err, updated) => {
+            if(err){
+                return console.log(err);
+            } else {
+                db.query("SELECT * FROM jobs WHERE job_id = ?", [req.params.job_id], (err, job) => {
+                    if(err){
+                        return console.log(err);
+                    }
+            
+                    db.query("SELECT note FROM jobnotes WHERE job_id = ?", [req.params.job_id], (err, jobnotes) => {
+                        if(err){
+                            return console.log(err);
+                        } else {
+                            req.flash("updated", "Job Updated")
+                            res.render("job", {job, jobnotes, updated : req.flash("updated")});
+                        }
+                    })
+                })
+            }
+        })
+    })
+})
 
 module.exports = router;

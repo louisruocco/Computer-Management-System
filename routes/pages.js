@@ -110,13 +110,13 @@ router.get("/home/:name/:job_id", redirectLanding, (req, res) => {
             if(err){
                 return console.log(err);
             } else {
-                res.render("job", {job, jobnotes});
+                res.render("job", {job, jobnotes, updated : req.flash("updated")});
             }
         })
     })
 });
 
-router.get("/:jobname/addnote", (req, res) => {
+router.get("/:jobname/addnote", redirectLanding, (req, res) => {
     db.query("SELECT job_id, jobname, name FROM jobs WHERE jobname = ?", [req.params.jobname], (err, job) => {
         if(err){
             return console.log(err);
@@ -124,5 +124,16 @@ router.get("/:jobname/addnote", (req, res) => {
             res.render("addnote", {job});
         }
     })
+});
+
+router.get("/edit/job/:job_id", redirectLanding, (req, res) => {
+    db.query("SELECT * FROM jobs WHERE job_id = ?", [req.params.job_id], (err, job) => {
+        if(err){
+            return console.log(err);
+        } else {
+            res.render("editjob", {job});
+        }
+    })
 })
+
 module.exports = router;

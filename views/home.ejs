@@ -24,11 +24,6 @@
         <% workstations.forEach(workstation => { %>
             <a href="/home/<%= workstation.name %>">
                 <%= workstation.name %>
-                <% if(updated.length > 0){ %>
-                    <div class="updated">
-                        <p><%= updated %></p>
-                    </div>
-                <% } %>
             </a>
         <% }) %>
     </div>
