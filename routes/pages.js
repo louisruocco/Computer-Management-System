@@ -106,6 +106,8 @@ router.get("/home/:name/:job_id", redirectLanding, (req, res) => {
             return console.log(err);
         }
 
+        console.log(req.params.job_id);
+
         db.query("SELECT note FROM jobnotes WHERE job_id = ?", [req.params.job_id], (err, jobnotes) => {
             if(err){
                 return console.log(err);

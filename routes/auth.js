@@ -158,38 +158,36 @@ router.post("/note/:job_id", (req, res) => {
         if(err){
             return console.log(err);
         } else {
-            res.send("<script>window.close();</script>")
+            res.send(`
+            <script>
+                window.opener.location.reload();
+                window.close();
+            </script>`);
         }
     })
 });
 
 router.post("/edit/job/:job_id", (req, res) => {
     const { jobname, description} = req.body;
-    db.query("SELECT * FROM jobs WHERE job_id = ?", [req.params.job_id], (err, job) => {
+    db.query("UPDATE jobs SET ? WHERE job_id = ?", [{jobname: jobname, description: description}, req.params.job_id], (err) => {
         if(err){
             return console.log(err);
-        }
-
-        db.query("UPDATE jobs SET ?", {jobname: jobname, description: description}, (err, updated) => {
-            if(err){
-                return console.log(err);
-            } else {
-                db.query("SELECT * FROM jobs WHERE job_id = ?", [req.params.job_id], (err, job) => {
+        } else {
+            db.query("SELECT * FROM jobs WHERE job_id = ?", [req.params.job_id], (err, job) => {
+                if(err){
+                    return console.log(err);
+                }
+        
+                db.query("SELECT note FROM jobnotes WHERE job_id = ?", [req.params.job_id], (err, jobnotes) => {
                     if(err){
                         return console.log(err);
+                    } else {
+                        req.flash("updated", "Job Updated");
+                        res.render("job", {job, jobnotes, updated : req.flash("updated")});
                     }
-            
-                    db.query("SELECT note FROM jobnotes WHERE job_id = ?", [req.params.job_id], (err, jobnotes) => {
-                        if(err){
-                            return console.log(err);
-                        } else {
-                            req.flash("updated", "Job Updated")
-                            res.render("job", {job, jobnotes, updated : req.flash("updated")});
-                        }
-                    })
                 })
-            }
-        })
+            })
+        }
     })
 })
 
