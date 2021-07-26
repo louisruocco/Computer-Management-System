@@ -189,6 +189,32 @@ router.post("/edit/job/:job_id", (req, res) => {
             })
         }
     })
+});
+
+router.post("/close/:name/job/:job_id", (req, res) => {
+    db.query("DELETE FROM jobs WHERE job_id = ?", [req.params.job_id], (err) => {
+        if(err){
+            return console.log(err);
+        } else {
+            db.query("DELETE FROM jobnotes WHERE job_id = ?", [req.params.job_id], (err) => {
+                return console.log(err);
+            })
+        }
+
+        db.query("SELECT * FROM workstations WHERE name = ?", [req.params.name], (err, device) => {
+            if(err){
+                return console.log(err)
+            } else {
+               db.query("SELECT * FROM jobs WHERE name = ?", [req.params.name], (err, jobs) => {
+                   if(err){
+                       return console.log(err);
+                   } else {
+                       res.render("workstation", {device, jobs});
+                   }
+               })
+            }
+        })
+    })
 })
 
 module.exports = router;

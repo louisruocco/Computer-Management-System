@@ -136,6 +136,16 @@ router.get("/edit/job/:job_id", redirectLanding, (req, res) => {
             res.render("editjob", {job});
         }
     })
+});
+
+router.get("/close/job/:job_id", (req, res) => {
+    db.query("SELECT * FROM jobs WHERE job_id = ?", [req.params.job_id], (err, job) => {
+        if(err){
+            return console.log(err);
+        } else {
+            res.render("closejob", {job});
+        }
+    })
 })
 
 module.exports = router;
