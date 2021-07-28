@@ -146,6 +146,10 @@ router.get("/close/job/:job_id", (req, res) => {
             res.render("closejob", {job});
         }
     })
+});
+
+router.get("/closedjobs/:name", (req, res) => {
+    console.log("Working....");
 })
 
 module.exports = router;
