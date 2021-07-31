@@ -9,16 +9,6 @@
     <title>CLOSED | <%= job[0].name %> | <%= job[0].jobname %></title>
 </head>
 <body>
-    <div class="nav">
-        <form action="/auth/logout" method = "POST">
-            <div class="logout"">
-                <button><i class="fas fa-sign-out-alt"></i></button>
-            </div>
-        </form>
-        <div class="back">
-            <a href="/home"><i class="fas fa-home"></i></i></a>
-        </div>
-    </div>
     <div class="subtitle">
         <a href="/home/<%= job[0].name %>"><%= job[0].name %></a>
     </div>

@@ -91,11 +91,17 @@ router.post("/delete/:name", (req, res) => {
         if(err){
             return console.log(err)
         } else {
-            db.query("DELETE FROM jobs WHERE name = ?", [req.params.name], (err) => {
+            db.query("DELETE FROM closedjobs WHERE name = ?", [req.params.name], (err) => {
                 if(err){
                     return console.log(err);
                 } else {
-                    res.redirect("/home");
+                    db.query("DELETE FROM closedjobnotes WHERE name = ?", [req.params.name], (err) => {
+                        if(err){
+                            return console.log(err);
+                        } else {
+                            res.redirect("/home");
+                        }
+                    })
                 }
             })
         }
@@ -152,9 +158,9 @@ router.post("/addjob/:name", (req, res) => {
     })
 });
 
-router.post("/note/:job_id", (req, res) => {
+router.post("/note/:name/:job_id", (req, res) => {
     const { note } = req.body;
-    db.query("INSERT INTO jobnotes SET ?", {job_id: req.params.job_id, note: note}, (err) => {
+    db.query("INSERT INTO jobnotes SET ?", {name: req.params.name, job_id: req.params.job_id, note: note}, (err) => {
         if(err){
             return console.log(err);
         } else {

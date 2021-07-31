@@ -77,7 +77,7 @@ router.get("/delete/:name", redirectLanding, (req, res) => {
         } else {
             res.render("delete", {device});
         }
-    })
+    });
 });
 
 router.get("/edit/:name", redirectLanding, (req, res) => {
@@ -105,8 +105,6 @@ router.get("/home/:name/:job_id", redirectLanding, (req, res) => {
         if(err){
             return console.log(err);
         }
-
-        console.log(req.params.job_id);
 
         db.query("SELECT note FROM jobnotes WHERE job_id = ?", [req.params.job_id], (err, jobnotes) => {
             if(err){
@@ -178,16 +176,6 @@ router.get("/home/:name/:job_id", redirectLanding, (req, res) => {
                 res.render("job", {job, jobnotes, updated : req.flash("updated")});
             }
         })
-    })
-});
-
-router.get("/:jobname/addnote", redirectLanding, (req, res) => {
-    db.query("SELECT job_id, jobname, name FROM jobs WHERE jobname = ?", [req.params.jobname], (err, job) => {
-        if(err){
-            return console.log(err);
-        } else {
-            res.render("addnote", {job});
-        }
     })
 });
 

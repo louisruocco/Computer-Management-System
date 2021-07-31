@@ -15,7 +15,7 @@
         <h2><%= job[0].jobname %></h1>
     </div>
     <div class="add-div">
-        <form action="/auth/note/<%= job[0].job_id %>" method = "POST">
+        <form action="/auth/note/<%= job[0].name %>/<%= job[0].job_id %>" method = "POST">
             <div class="note-description-section">
                 <textarea type="text" name = "note"></textarea>
             </div>
