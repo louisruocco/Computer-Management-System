@@ -60,7 +60,7 @@
     </div>
     <div class="jobs">
         <% jobs.forEach(job => { %>
-            <a href = "/home/<%= device[0].name %>/<%= job.job_id %>"><%= job.jobname %></a>
+            <a href = "/home/<%= device.name %>/<%= job.job_id %>"><%= job.jobname %></a>
         <% }) %>
     </div>
 </body>

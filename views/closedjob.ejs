@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/views/css/styles.css">
+    <title>CLOSED | <%= job[0].name %> | <%= job[0].jobname %></title>
+</head>
+<body>
+    <div class="nav">
+        <form action="/auth/logout" method = "POST">
+            <div class="logout"">
+                <button><i class="fas fa-sign-out-alt"></i></button>
+            </div>
+        </form>
+        <div class="back">
+            <a href="/home"><i class="fas fa-home"></i></i></a>
+        </div>
+    </div>
+    <div class="subtitle">
+        <a href="/home/<%= job[0].name %>"><%= job[0].name %></a>
+    </div>
+    <div class="title">
+        <h1>Closed: <%= job[0].jobname %></h1>
+    </div>
+    <div class="description">
+        <h3>Description:</h3>
+        <p><%= job[0].description %></p>
+    </div>
+    <div class="subtitle">
+        <a href="/<%= job[0].jobname %>/addnote" target = "_blank" onclick = "window.open('/<%= job[0].jobname %>/addnote', 'name', 'width=650, height=650')">Add note</a>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="job-notes">
+        <h4>Job Notes</h4>
+        <% jobnotes.forEach(jobnote => { %>
+            <p><%= jobnote.note %></p>
+        <% }) %>
+    </div>
+</body>
+</html>

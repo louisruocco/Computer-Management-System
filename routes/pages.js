@@ -149,7 +149,82 @@ router.get("/close/job/:job_id", (req, res) => {
 });
 
 router.get("/closedjobs/:name", (req, res) => {
-    console.log("Working....");
-})
+    db.query("SELECT * FROM closedjobs WHERE name = ?", [req.params.name], (err, closedjobs) => {
+        if(err){
+            return console.log(err);
+        } 
+
+        if(!closedjobs[0]){
+            req.flash("noclosedjobs", "No Closed Jobs Found");
+            return res.render("noclosedjobs", {noclosedjobs: req.flash("noclosedjobs")})
+        } else {
+            res.render("closedjobs", {closedjobs});
+        }
+    })
+});
+
+router.get("/home/:name/:job_id", redirectLanding, (req, res) => {
+    db.query("SELECT * FROM jobs WHERE job_id = ?", [req.params.job_id], (err, job) => {
+        if(err){
+            return console.log(err);
+        }
+
+        console.log(req.params.job_id);
+
+        db.query("SELECT note FROM jobnotes WHERE job_id = ?", [req.params.job_id], (err, jobnotes) => {
+            if(err){
+                return console.log(err);
+            } else {
+                res.render("job", {job, jobnotes, updated : req.flash("updated")});
+            }
+        })
+    })
+});
+
+router.get("/:jobname/addnote", redirectLanding, (req, res) => {
+    db.query("SELECT job_id, jobname, name FROM jobs WHERE jobname = ?", [req.params.jobname], (err, job) => {
+        if(err){
+            return console.log(err);
+        } else {
+            res.render("addnote", {job});
+        }
+    })
+});
+
+router.get("/edit/job/:job_id", redirectLanding, (req, res) => {
+    db.query("SELECT * FROM jobs WHERE job_id = ?", [req.params.job_id], (err, job) => {
+        if(err){
+            return console.log(err);
+        } else {
+            res.render("editjob", {job});
+        }
+    })
+});
+
+router.get("/close/job/:job_id", (req, res) => {
+    db.query("SELECT * FROM jobs WHERE job_id = ?", [req.params.job_id], (err, job) => {
+        if(err){
+            return console.log(err);
+        } else {
+            res.render("closejob", {job});
+        }
+    })
+});
+
+router.get("/home/closedjob/:name/:job_id", (req, res) => {
+    db.query("SELECT * FROM closedjobs WHERE job_id = ?", [req.params.job_id], (err, job) => {
+        if(err){
+            return console.log(err);
+        } else {
+            db.query("SELECT * FROM closedjobnotes WHERE job_id = ?", [req.params.job_id], (err, jobnotes) => {
+                if(err){
+                    return console.log(err);
+                } else {
+                    res.render("closedjob", {job, jobnotes});
+                }
+            });
+        }
+    }); 
+});
 
 module.exports = router;
