@@ -51,7 +51,7 @@ router.get("/home", redirectLanding, (req, res) => {
 });
 
 router.get("/add", redirectLanding, (req, res) => {
-    res.render("add");
+    res.render("add", {exists : req.flash("exists")});
 });
 
 router.get("/home/:name", redirectLanding, (req, res) => {

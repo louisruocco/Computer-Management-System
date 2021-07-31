@@ -32,12 +32,17 @@ hr {
 .title {
     color: white;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     width: 100%;
     height: 20vh;
     font-size: 30px;
+}
+
+.title span {
+    color: seagreen;
 }
 
 .links {
@@ -58,7 +63,27 @@ hr {
     padding: 50px;
     transition: .4s ease;
 }
+
+.links button {
+    margin: 80px;
+    text-decoration: none;
+    font-size: 25px;
+    color: seagreen;
+    background: black;
+    border-radius: 7px;
+    padding: 50px;
+    transition: .4s ease;
+    outline: none;
+    border: none;
+    font-family: 'Rajdhani', sans-serif;
+}
+
 .links a:hover {
+    transition: .4s ease;
+    transform: scale(1.15);
+}
+
+.links button:hover {
     transition: .4s ease;
     transform: scale(1.15);
 }
@@ -85,9 +110,9 @@ hr {
     outline: none;
     border: none;
     padding: 10px;
-    font-family: 'Rajdhani', sans-serif;
     color: seagreen;
     font-size: 20px;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 .form-section input::placeholder{
@@ -151,6 +176,10 @@ hr {
     margin: auto;
 }
 
+.error h3 {
+    font-size: 22px;
+}
+
 .add {
     text-align: center;
 }
@@ -206,6 +235,7 @@ hr {
     text-transform: uppercase;
     text-align: center;
     font-size: 20px;
+    color: white;
 }
 
 .nav {
@@ -355,6 +385,18 @@ hr {
     color: seagreen;
 }
 
+.closed-jobs a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    transition: .2s ease;
+}
+
+.closed-jobs a:hover {
+    transition: .2s ease;
+    color: seagreen;
+}
+
 .add-div {
     text-align: center;
 }
@@ -416,7 +458,7 @@ hr {
     font-family: 'Rajdhani', sans-serif;
     color: white;
     padding: 20px;
-    font-size: 18px;
+    font-size: 25px;
     cursor: pointer;
     transition: .3s ease;
 }
@@ -459,12 +501,29 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15px;
+    padding-top: 15px;
 }
 
-.subtitle h2, h3, h4, a {
+.subtitle h2, h4 {
+    color: seagreen;
+    font-size: 25px;
+}
+
+.subtitle h3 {
     color: seagreen;
     font-size: 20px;
+}
+
+.subtitle a {
+    font-size: 22px;
+    color: seagreen;
+    transition: .3s ease;
+    text-align: center;
+}
+
+.subtitle a:hover {
+    color: white;
+    transition: .3s ease;
 }
 
 .ws-title {
@@ -545,7 +604,6 @@ hr {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 20px;
 }
 
 .job-notes h4 {

@@ -62,7 +62,8 @@ router.post("/add", (req, res) => {
         }
 
         if(workstation.length > 0){
-            return res.send("<h1>Workstation Already Exists</h1>")
+            req.flash("exists", "Workstation Already Exists");
+            return res.render("add", {exists : req.flash("exists")});
         }
 
         db.query("INSERT INTO workstations SET ?", {id: req.session.userId, name: name, os: os, spec: spec, storage: storage}, (err) => {
