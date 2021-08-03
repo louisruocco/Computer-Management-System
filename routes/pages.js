@@ -33,7 +33,7 @@ router.get("/login", redirectHome, (req, res) => {
 router.get("/register", redirectHome, (req, res) => {
     res.render("register", { userexists : req.flash("userexists") });
 });
-
+``
 router.get("/home", redirectLanding, (req, res) => {
     db.query("SELECT name FROM users WHERE id = ?", [req.session.userId], (err, name) => {
         if(err){
