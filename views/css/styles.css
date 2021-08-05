@@ -624,6 +624,10 @@ hr {
     .title, .device-title {
         font-size: 27px;
     }
+
+    .subtitle {
+        font-size: 22px;
+    }
     
     .form-section input {
         width: 250px;
@@ -670,5 +674,21 @@ hr {
 
     .details p {
         font-size: 16px;
+    }
+
+    .add-job a {
+        font-size: 20px;
+    }
+
+    .jobs a {
+        font-size: 20px;
+    }
+
+    .nav {
+        width: 4%;
+    }
+
+    .nav button, .nav a {
+        font-size: 20px;
     }
 }
