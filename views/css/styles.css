@@ -622,11 +622,15 @@ hr {
 
 @media only screen and (max-width: 1600px){
     .title, .device-title {
-        font-size: 27px;
+        font-size: 23px;
     }
 
-    .subtitle {
-        font-size: 22px;
+    .subtitle a, .link-section a {
+        font-size: 18px;
+    }
+
+    .subtitle h2, .job-notes h4 {
+        font-size: 21px;
     }
     
     .form-section input {
@@ -641,10 +645,6 @@ hr {
     .button button {
         padding: 15px;
         font-size: 15px;
-    }
-
-    .link-section a {
-        font-size: 18px;
     }
 
     .add a {
@@ -676,8 +676,8 @@ hr {
         font-size: 16px;
     }
 
-    .add-job a {
-        font-size: 20px;
+    .add-job a, .closed-jobs a {
+        font-size: 17px;
     }
 
     .jobs a {
@@ -690,5 +690,18 @@ hr {
 
     .nav button, .nav a {
         font-size: 20px;
+    }
+
+    .description h3 {
+        font-size: 20px;
+    }
+
+    .description p {
+        font-size: 17px;
+    }
+
+    .add-div input, textarea {
+        padding: 5px;
+        font-size: 17px;
     }
 }
