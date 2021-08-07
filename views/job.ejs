@@ -21,7 +21,7 @@
             </div>
         </form>
         <form action="/close/job/<%= job[0].job_id %>">
-            <div class="delete-workstation">
+        <div class="delete-workstation">
                 <button><i class="fas fa-times-circle"></i></button>
             </div>
         </form>
@@ -42,7 +42,7 @@
         <p><%= job[0].description %></p>
     </div>
     <div class="subtitle">
-        <a href="/<%= job[0].jobname %>/addnote" target = "_blank" onclick = "window.open('/<%= job[0].jobname %>/addnote', 'name', 'width=650, height=650')">Add note</a>
+        <a class = "addnote" href="/<%= job[0].jobname %>/addnote" target = "_blank" onclick = "window.open('/<%= job[0].jobname %>/addnote', 'name', 'width=650, height=650')">Add note</a>
     </div>
     <br>
     <hr>

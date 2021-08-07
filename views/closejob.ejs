@@ -9,8 +9,8 @@
 </head>
 <body>
     <div class="title">
-        <h1>This will Permanently Close <span><%= job[0].jobname %></span> From <%=job[0].name %></h1>
-        <h2>Are You Sure You Want to Do this?</h2>
+        <h1 class = "close-title">This will Permanently Close <span><%= job[0].jobname %></span> From <%=job[0].name %></h1>
+        <h2 class = "close-title">Are You Sure You Want to Do this?</h2>
     </div>
     <div class="links">
         <form action="/auth/close/<%=job[0].name %>/job/<%= job[0].job_id %>" method = "POST">
