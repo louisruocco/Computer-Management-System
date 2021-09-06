@@ -12,15 +12,12 @@
     <div class="subtitle">
         <a href="/home/<%= job[0].name %>"><%= job[0].name %></a>
     </div>
-    <div class="close-title">
-        <h1 class = "closedjob-title">Closed: <%= job[0].jobname %></h1>
+    <div class="title">
+        <h1>Closed: <%= job[0].jobname %></h1>
     </div>
     <div class="description">
         <h3>Description:</h3>
         <p><%= job[0].description %></p>
-    </div>
-    <div class="subtitle">
-        <a href="/<%= job[0].jobname %>/addnote" target = "_blank" onclick = "window.open('/<%= job[0].jobname %>/addnote', 'name', 'width=650, height=650')">Add note</a>
     </div>
     <br>
     <hr>
